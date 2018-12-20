@@ -1,0 +1,56 @@
+1、Caused by ProxyError('Cannot connect to proxy.'
+    解决方法：
+    1、不要设置代理
+    2、打开代理工具charles
+
+2、 多个 if
+        if index == '1':
+            position_li.append('42')
+            position_li.append('42')
+        if index == '2':
+            position_li.append('112')
+            position_li.append('42')
+        if index == '3':
+            position_li.append('112')
+            position_li.append('42')
+        if index == '4':
+            position_li.append('112')
+            position_li.append('42')
+        if index == '5':
+            position_li.append('112')
+            position_li.append('42')
+    解决：
+    1、绝对不会出现这样的 多个 if 的情况,必须使用 if ...... elif ...... else
+    2、碰到这种多条件判断时，一定要思考，是否可以不使用这样的判断，而采用通用的方法，不然的话，代码行数会随着判断的情况的增多，而增多
+
+3、 302 跳转，记住只访问第一个 302 状态的请求，但是得到的response是邻近302的第一个 200 状态的 response
+    因为 requests 库会自动进行302跳转
+    https://passport.lagou.com/grantServiceTicket/grant.html	302	GET
+    http://www.lagou.com/?action=grantST&ticket=ST-ad7a6b3e1e3a463dab51554b8b48034c	302	GET
+    https://www.lagou.com/?action=grantST&ticket=ST-ad7a6b3e1e3a463dab51554b8b48034c	302	GET
+    http://www.lagou.com/	302	GET
+    https://www.lagou.com/	200	GET
+    简单的处理： 不管连续多少个302， 最后肯定会跟一个 200， 这多个请求，是一个组
+        使用requests库 或 scrapy 进行访问时，
+        永远访问第一个 302 的 url ： https://passport.lagou.com/grantServiceTicket/grant.html
+        但是你要记住，你得到的response，永远是最后一个 状态码是 200 的 response  : https://www.lagou.com/	200	GET
+        前提： 不要关闭自动跳转，默认就是自动跳转！
+
+4、一个函数只做一个事情
+    一定要谨记！！如果发现做了多件事情，那么就应该意识到，可以提取 函数 了！！
+
+5、同一个数据的处理，应该在同一个地方（函数，代码块），尤其是 self.arg  这样的变量
+
+    fun_a:   self.arg = [1,2,3,4,5]
+    fun_b :  self.arg = ['a', 'b']
+
+    解决办法：应该把对同一个变量的 清洗、过滤、整理， 应该在同一个函数中 集中 处理！！
+
+6、类命名、函数命名
+    class Login
+
+    def first
+
+    这样的不能表达真实含义的命名，都是不允许的！！
+
+

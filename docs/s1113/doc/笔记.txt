@@ -1,0 +1,67 @@
+1、scrapy 项目
+    必须作为一个 根项目，而不是一个子项目存在
+    作为子项目存在，出现严重的路径问题！
+    譬如：
+    新建一个 项目  project_my  ，
+    然后在 project_my 项目下，再次执行 scrapy startproject scrapy_pro
+
+    上述2步就是将 scrapy项目 作为子项目
+
+    不允许这样操作！！！
+
+2、一些基本的问题的解决
+    需要提高自己解决问题的能力
+    譬如：
+    Twisted库 需要安装
+    win32api 需要安装
+
+3、为什么要修改 pipeline 中的 类的 默认方法名？
+   处理 item 对象的持久化的类是： Scrapy180801Pipeline
+   其中的方法：
+   process_item(self, item, spider)：  接收 item和spider， 进行持久化操作
+   open_spider(self, spider):  当spider 类 实例化时，  由 scrapy 引擎 自动调用的！
+   close_spider(self, spider):   当 spider类 的实例 关闭时， 由 scrapy 引擎 自动调用的！
+
+   以上3个方法，都不能修改函数名和参数！！！！是固定的写法
+
+   错误的写法：
+   open_spider ： init_spider
+   close_spider:  close
+
+
+   注意： 框架所约定的 函数名、类名、属性名、路径 等，
+            都不要去修改！！！！都是固定写法
+
+        只要是叫做框架的！！必然有些固定的名称的！！
+
+4、传 项目 给别人时
+    一起记得把 项目 打包， 整体发送给别人！
+
+5、做 项目 时，优先级： 实现功能永远是第一位的！！！
+    需求实现 >> 设计的合理 、 代码的编写规范 、 性能的提升
+
+6、在 scrapy 中，数据清洗，一般也是通过 pipeline 来进行的
+
+7、 spdier 类中  meta 参数的应用
+    多个 callback 之间 传递参数， 使用 meta ，千万别使用 self 传参！！
+
+8、 mongodb 启用 用户名和密码
+    1、在 mongodb的配置文件中，设置
+        auth=true
+    2、重启 mongodb 服务！
+        net stop mongodb
+        net start mongdb
+        注意： mongodb  是 服务名,  cmd命令行，必须是 管理员 打开方式！
+    3、在 cmd 中连接 mongodb 后
+        执行以下命令：
+        use admin  # 切换到 admin 数据库
+        db.auth('用户名', '密码')  # 输入自己的用户名密码登录
+    4、在 程序中使用 pymongo 连接mongodb
+        如下：
+        mongo_config = {
+            'host': '127.0.0.1',
+            'port': 27017,
+            'username': 'admin',
+            'password': 'admin123'
+        }
+        client = pymongo.MongoClient(**mongo_config)

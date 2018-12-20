@@ -1,0 +1,75 @@
+1、继续 0920 的项目
+2、https://kyfw.12306.cn/otn/confirmPassenger/getQueueCount
+    train_date	Tue Oct 16 2018 00:00:00 GMT+0800 (中国标准时间)  # 时间
+    train_no	330000K5980Z   #  queryA中的
+    stationTrainCode	K599  # 车次
+    seatType	3    # 座席类型
+    fromStationTelecode	BXP  # 出发地
+    toStationTelecode	CSQ  # 目的地
+    leftTicket	EqIwD1xCmjGlYeHlPEGZAAFPE%2FHv2v1oohLqo%2F6JyJJBkypfmCJk0aRfHec%3D  #  queryA 中
+    purpose_codes	00  #  固定值
+    train_location	C1  #  queryA
+    _json_att
+    REPEAT_SUBMIT_TOKEN	57054097964abf20c0a3f74058f2fc66  # initDC 获得
+
+    返回值：
+    {
+        "validateMessagesShowId": "_validatorMessage",
+        "status": true,
+        "httpstatus": 200,
+        "data": {
+            "count": "0",
+            "ticket": "4",
+            "op_2": "false",
+            "countT": "0",
+            "op_1": "false"
+        },
+        "messages": [],
+        "validateMessages": {}
+    }
+
+    其中 ticket， 有2种情况， 1：  整型的字符串， 表示选中的座位的票数 ； 2： '0, 30'， 前面的 0 标识 购买的座位没票了，但是有 30 个 无座
+
+3、https://kyfw.12306.cn/otn/confirmPassenger/confirmSingleForQueue
+    passengerTicketStr	3,0,1,颜金娥,1,432524195803170023,13263281381,N   # 已实现
+    oldPassengerStr	颜金娥,1,432524195803170023,1_  # 已实现
+    randCode
+    purpose_codes	00
+    key_check_isChange	8AA798AFE33C04796BFD12E35BAE409E2E2B34D593A485E5EA6882AD  # 在 initDC
+    leftTicketStr	EqIwD1xCmjGlYeHlPEGZAAFPE%2FHv2v1oohLqo%2F6JyJJBkypfmCJk0aRfHec%3D  #  queryA 中
+    train_location	C1   #  queryA
+    choose_seats         #  选座   1A  1B  1C  1D 1F  一等座和二等座选座位的列数，A、F靠窗， C 和 D 靠过道
+    seatDetailType	000   # 固定值
+    whatsSelect	1    # 固定值
+    roomType	00   # 固定值
+    dwAll	N        # 固定值
+    _json_att
+    REPEAT_SUBMIT_TOKEN	57054097964abf20c0a3f74058f2fc66    # 已找到
+
+4、https://kyfw.12306.cn/otn/confirmPassenger/queryOrderWaitTime?random=1537430356556&tourFlag=dc&_json_att=&REPEAT_SUBMIT_TOKEN=57054097964abf20c0a3f74058f2fc66
+    random	1537430356556  # 时间戳
+    tourFlag	dc
+    _json_att
+    REPEAT_SUBMIT_TOKEN	57054097964abf20c0a3f74058f2fc66  # 已得到
+
+5、https://kyfw.12306.cn/otn/confirmPassenger/resultOrderForDcQueue
+    可以不用发送
+
+
+注意事项：
+1、 get 请求的参数处理
+    2种处理情况：
+    1、如果参数数量少，或者就是固定值，那么直接写在 url 后面就好，如：
+        url = 'https://kyfw.12306.cn/otn/passcodeNew/getPassCodeNew?module=passenger&rand=randp&' + random.random()
+        requests.get(url)
+    2、如果参数数量多，比较复杂，或者变量很多，就建议使用 params 参数：
+        url = 'https://kyfw.12306.cn/otn/confirmPassenger/queryOrderWaitTime'
+        params = {
+            'random': '1537430356556',
+            'tourFlag': 'dc',
+            '_json_att': '',
+            'REPEAT_SUBMIT_TOKEN': '57054097964abf20c0a3f74058f2fc66'
+        }
+        requests.get(url, params=params)
+
+    但是以上两种方式，到了 http 协议这一层，是一模一样的！！！没有任何差别，只是 代码的 可阅读性 有差异！

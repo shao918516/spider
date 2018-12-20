@@ -1,0 +1,50 @@
+1、当发送一个 请求 时，获取到的 response 不是正确的（和浏览器获取的不同）
+    12306中的：https://kyfw.12306.cn/otn/leftTicket/submitOrderRequest
+    1、比对 url参数
+    2、比对 form等参数
+        注意： 参数不是要求 内容都一直， 格式一直即算是一样的！！
+    3、比对request的headers
+    4、比对cookies
+        一般检查到这里，都会发现，程序提交的比浏览器提交的少很多 cookie
+        首先找到缺少的 cookies（有效的cookie一般就几个）
+        接着要有一定的判断：
+            不用理会（一般情况下）：空值、固定值、时间戳、很简单的数字
+            重点理会的： 16进制串、base64串、长一点的字符串
+
+        找到一些需要进行确认的cookie之后，2种方式处理：
+        1、在 charles中通过 breakpoint或 edit 进行测试，看是否是关键cookie
+        2、直接在 charles 搜索该cookie获取的 request，
+            范围一般是在 response 的headers 中
+            如果很简单，那么直接发送获取
+            如果很复杂，建议先做第一步测试！
+
+        找到关键cookie后，在charles搜索这个cookie是哪个 request 获取的
+
+2、'NoneType' object has no attribute 'group'
+    NoneType：  None值
+    group： 属性名
+
+3、12306中的 https://kyfw.12306.cn/otn/confirmPassenger/checkOrderInfo
+    参数
+    passengerTicketStr
+    oldPassengerStr
+
+    其中的 value 中拼接的参数， 如果手头上没有足够多的不同类型的账号、联系人等，是抓不全的！
+
+    如果你手上的资源能够尝试到的不同情况下，都是同一个值，可以暂时当做固定值处理！
+    今后的运行过程中，碰到了另外的情况，再次重构代码，补上新的情况
+
+
+4、使用 浏览器模拟 绕过 极验验证码
+    1、找到 移动的元素
+    2、鼠标 移动 指定的距离
+
+    在网页查找图片：
+    得到52个 div
+    指向同一个错乱的图片
+    并且 坐标不同
+    分成2排，每排26个坐标
+    图片的像素大小：312  116
+    猜测， 错乱的图片是一个完整的图片，被打乱成了
+    2排，每排26个的 错乱图片。
+

@@ -1,0 +1,49 @@
+1、抓包
+2、分析包
+3、用顺序查找的方式实现
+4、下一个 post 是： https://kyfw.12306.cn/otn/confirmPassenger/initDc
+    _json_att
+    这种 参数，尽量用复制！防止拼写错误
+5、顺序查找有一个原则：
+    post一般都直接编码提交
+    get就得判断: 是否有set-cookie（如果有，那么提交）， 看response的body中是否有特殊的字符（如果有，则访问）， 返回是一个html（可以先不访问）
+    图片、css、js都忽略
+6、 https://kyfw.12306.cn/otn/confirmPassenger/getPassengerDTOs
+    _json_att
+    REPEAT_SUBMIT_TOKEN	57054097964abf20c0a3f74058f2fc66
+
+    搜索：57054097964abf20c0a3f74058f2fc66
+    确定在 initDc 中获取
+7、https://kyfw.12306.cn/otn/confirmPassenger/checkOrderInfo
+    cancel_flag	2   # 固定值
+    bed_level_order_num	000000000000000000000000000000   #  固定值
+    passengerTicketStr	3,0,1,颜金娥,1,432524195803170023,13263281381,N  # 联系人的信息
+    oldPassengerStr	颜金娥,1,432524195803170023,1_  # 联系人的信息
+    tour_flag	dc  # 单程
+    randCode
+    whatsSelect	1   # 固定值
+    _json_att
+    REPEAT_SUBMIT_TOKEN	57054097964abf20c0a3f74058f2fc66  #  initDc 请求 得到
+8、https://kyfw.12306.cn/otn/confirmPassenger/getQueueCount
+    train_date	Tue Oct 16 2018 00:00:00 GMT+0800 (中国标准时间)  # 时间
+    train_no	330000K5980Z   #  queryA中的
+    stationTrainCode	K599  # 车次
+    seatType	3    # 座席类型
+    fromStationTelecode	BXP  # 出发地
+    toStationTelecode	CSQ  # 目的地
+    leftTicket	EqIwD1xCmjGlYeHlPEGZAAFPE%2FHv2v1oohLqo%2F6JyJJBkypfmCJk0aRfHec%3D  #  queryA 中
+    purpose_codes	00  #  固定值
+    train_location	C1  #  queryA
+    _json_att
+    REPEAT_SUBMIT_TOKEN	57054097964abf20c0a3f74058f2fc66  # initDC 获得
+
+
+注意事项：
+1、每次抓包都需要清理浏览器缓存：
+    如果不清理，那么 浏览器有可能使用本地缓存，而不去访问服务器的一些资源，譬如：JS文件，
+    那么在charles 中，就看不到 这个 js 的请求和响应
+    而假设恰好后续的某一个 request 中有参数就是在 上述的 js 中获取的
+    那么你就会发现，你在charles中的任何位置，都找不到这个变量， 如果这个变量是必须值，那么你永远没办法提交正确的request！！
+
+2、成功的提示，可以只打印一个 某某请求成功
+    但是失败的提示，一定要输出 response 的  text

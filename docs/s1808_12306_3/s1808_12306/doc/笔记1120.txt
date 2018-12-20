@@ -1,0 +1,31 @@
+1、requests 提交 请求
+    url 后面的 ?key=value
+    和使用
+    params = {
+        'key': value
+    }
+
+    功能是一摸一样的,  任选其一使用
+    一般简单的1,2个参数或者是固定参数，使用 ? 的方式
+    参数较多，并且需要动态变化，一般使用  params 的方式
+
+2、一定要注意查看错误代码，注意拼写！！！
+    TypeError: request() got an unexpected keyword argument 'parmas'
+    这样的错误都不能独立解决？
+    实在不行，找翻译软件翻译后，理解意思
+    在 traceback 中 查找自己的代码错误行，进行定位
+
+3、callback
+    回调函数
+    告诉服务器，我这个请求，你的响应内容应该作为参数提交个哪个函数处理！
+    而爬虫，不需要前端浏览器执行js代码， 只需要获取 服务器的 响应内容
+    所以 绝大多数 callback 参数都是可以不提交的
+
+4、类似 1542355493851 这样的串，一看就是 时间戳
+    有10位的，精确到秒
+    有13位的，精确到毫秒
+
+5、12306实现，已经实现了登录功能，继续往后：
+    1、查询车次信息
+        搜索 车次 G105
+        找到：https://kyfw.12306.cn/otn/leftTicket/query?leftTicketDTO.train_date=2018-12-17&leftTicketDTO.from_station=BJP&leftTicketDTO.to_station=SHH&purpose_codes=ADULT

@@ -1,0 +1,21 @@
+1、题目1
+访问 https://www.23us.so/xiaoshuo/14789.html
+解析其中的文本内容，
+使用3种方式，  正则、xpath、bs4
+得到如下信息：
+小说名
+小说类别
+作者
+状态
+全文长度
+总点击数
+
+2、题目2
+登录sina微博手机版
+登录url：https://passport.weibo.cn/signin/login
+
+1、登录
+2、获取50个博文信息
+    输出：
+    博主名
+    博文的前10个字符

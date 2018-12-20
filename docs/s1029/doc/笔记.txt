@@ -1,0 +1,76 @@
+一、自我介绍
+杨林，81年出生，13年IT，7年JAVA，5年多的PYTHON
+
+二、向前兼容
+    不管是软件、硬件、协议，都要保持向前兼容，就是新的协议、设备等 得支持旧的！
+    我们学习的是python3，和 python2是断代的！
+
+三、TCP/IP协议
+    是最常见的网络协议
+    它不是一个新的东西，而是2个协议的组合
+    TCP： 传输层
+    IP:  网络层
+
+四、最小单元原则
+    一个类只做一类事情
+    一个函数只做一件事
+
+五、json数据格式
+    只需要关注2个东西
+    1、 [] 中括号：  通过下标引用，从0开始
+    2、 {} 大括号：  通过 key 引用
+
+    json_data = {
+        'data': [
+            {'name':'terry'},
+            {'name':'mary'},
+            {'name':'ketty'},
+        ]
+    }
+     查找第一个 name 的值：
+     json_data['data'][0]['name']
+     修改：
+     json_data['data'][0]['name'] = 'other name'
+
+六、全双工
+    通讯分为
+    单工：   类似单行道，只能从A点到B点
+    双工：   类似双行道，既可以从A点到B点，也可以从B点到A点
+        半双工： 同一时刻，只能单向通行，某个时间，只能从一点到另一点
+        全双工： 任何时候都是双向通行
+
+7、设置 python 的头代码
+    #!/usr/bin/env python
+    # -*- coding: utf-8 -*-
+
+    pycharm >> 打开file >> 打开配置(settings) >> 点击 editor（编辑） >> file and code templates
+    >> 选中 python script >> 在右边的编辑页面中，输入上述代码，保存
+
+8、如果出现莫名的  module 'smtplib' has no attribute
+    模块错误
+    第一时间怀疑：模块命名冲突！你建立的py文件名和系统的模块名同名了
+
+9、课后需要去查阅 PEP8 文档
+
+10、一定要熟练使用debug 调试代码
+    step over: 单步执行，    断点行移动到下一行代码
+    step into：单步进入，    进行到当前行的函数内部！
+        如果当前行没有可以进入的函数，那么等同于 step over
+    step out： 单步退出，   退出当前函数，回到调用函数的代码行
+    resume program： 放开当前断点，直接执行程序，直到碰到下一个断点或者程序结束
+
+    熟练使用快捷键
+    强大的功能：
+    evaluate expression
+        在这个功能打开的窗口，是包含所有当前调试环境的上下文
+        并且可以手动进行修改
+
+11、在调试过程中，如果跟踪到这样的代码块：
+    def len(*args, **kwargs): # real signature unknown
+        """ Return the number of items in a container. """
+        pass
+
+    表示这个 len 函数是由 C 代码实现的，在pytho根本没有这个函数
+    而这里查看到的 函数名、参数和注释，
+    都是由 pycharm 根据 C 代码中的 文档注释，模拟构造出来的函数内容，
+    便于给我们程序员查看用！！！

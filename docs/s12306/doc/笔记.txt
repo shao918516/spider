@@ -1,0 +1,93 @@
+12306购票
+1、登录
+2、订票
+3、付款
+
+20180917：
+
+使用什么方式实现这个项目？
+1、requests : 选用这个
+2、scrapy
+
+
+验证码处理：
+核心，就是返回表示 验证码图片 中包含的意思的 字符串
+1、自己使用 ocr 库，进行图片识别
+    python是 tesseract、sunday.dll
+2、自己手动打码，一般是测试的时候使用
+3、打码平台
+4、自己架设 智能识别 的服务器
+
+
+20180918:
+1、根据昨天的程序继续往后走
+2、抓包
+3、分析数据包
+4、我们选择的条件是
+    20181016 日， 北京 去 长沙 的车次， 选中 z149
+5、搜索 始发站 或 终点站，找到：
+    https://kyfw.12306.cn/otn/leftTicket/submitOrderRequest
+    参数：
+    secretStr	NzlCBspFZDWRgcehQHnbbwT9JySLkRdBEeQAqKU3PG0EDQgpIpjNPXbSXufUr+etHqz9bba739Xn
+                Uvp+ueXri2w9nH0VpIl2J8sg29oaSJfk5rEmEQ8QQ2UQgX0GgtmX1Q611Ei2Lkx5nQ8FNhrtKxNF
+                EOiJmfuOwjpwbDhSh1xMmYrzZ2ASIaMkcDr07Pwj4SYzGL39VgvyeJajyCQP34NgLBuZRNcCY080
+                JJ4tisbidiAWtsTNqxCgRXe38fjzS4eDDRD7bhc=
+    train_date	2018-10-16
+    back_train_date	2018-09-18
+    tour_flag	dc
+    purpose_codes	ADULT
+    query_from_station_name	鍖椾含
+    query_to_station_name	闀挎矙
+    undefined
+
+    查找：
+    secretStr：  类似这样的参数，一定不能全部复制进行 查找！！！！
+                一定要选取其中的部分字符串，并且不能包含特殊字符，应该是单纯的 数字+字母 的连续 字符串，一般有大概10多个字符即可
+                response 搜索类似：VpIl2J8sg29oaSJfk5rEmEQ8QQ2UQgX0GgtmX1Q6
+                定位到：
+                https://kyfw.12306.cn/otn/leftTicket/queryA?leftTicketDTO.train_date=2018-10-16&leftTicketDTO.from_station=BJP&leftTicketDTO.to_station=CSQ&purpose_codes=ADULT
+
+                这个url的发送的 query string：
+                leftTicketDTO.train_date	2018-10-16
+                leftTicketDTO.from_station	BJP
+                leftTicketDTO.to_station	CSQ
+                purpose_codes	ADULT   #  乘客类型：  普通：ADULT
+
+                继续搜索 BJP 和 CSQ
+                找到 https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9066：
+                var station_names ='@bjb|北京北|VAP|beijingbei|bjb|0@bjd|北京东|BOP|beijingdong|bjd|1@bji|北京|BJP|beijing|bj|2@。。。。。。
+
+6、secretStr  提交，一定注意，需要进行 parse.unqote 解码
+7、确认 参数和headers之后，提交，依然返回 302 ，得不到正确的值
+    搜索 cookie：
+    tk   eRlBsQ8veleCB2n_DK90xzvy9jv1B8rPvS1QcMpQV7Q51m2m0
+    找到
+    https://kyfw.12306.cn/passport/web/auth/uamtk
+    https://kyfw.12306.cn/otn/uamauthclient
+
+
+
+注意事项：
+1、爬虫的思路
+    根据抓包中的数据包，进行提交
+    1、提交简单的参数，确认参数是否一样，这里的一眼干部是指内容一模一样， 因为很多时候内容是动态的，每次都不同，但是至少格式一定是相同！！
+    2、查找headers（不包括cookie）
+    3、找cookie
+        在charles中，一个个的cookie进行删除，提交，可以确认必须的 cookie 项
+    4、如果上述3步都确认没问题，但是依然得不到正确的响应
+        得考虑 行为 了！！！
+            1、分析数据包，看是否有遗漏的 post 请求 或者 一些看上去比较重要的 get 请求
+            2、加 延时
+            3、需要模拟正常的用户，随机访问一些其他的url请求
+
+
+2、数据包中 302 的请求
+    类似：
+    https://kyfw.12306.cn/otn/login/userLogin	302	POST
+    https://kyfw.12306.cn/otn/passport?redirect=/otn/login/userLogin	200	GET
+
+    requests 会自动进行 302 和301 的跳转请求，即
+    我们程序发送第一条请求，后续的请求，requests库会自动提交，
+    原因： requests有个参数 allow_redirects，默认是True， 如果不想自动提交，则设置为 allow_redirects=False 即可
+
+    PS：一定要记住！不管有多少个302， 我们永远只发送第一个请求！！！！！！！！！！！！！

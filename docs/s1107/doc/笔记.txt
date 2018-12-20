@@ -1,0 +1,91 @@
+1、在charles中，如何查找正确的 我们程序  应该发送的请求
+    2种思路：
+    1、从上往下排查
+        一般 css、js、图片、文件 这些类型的请求，都是不用理会的！
+        一些options、head 等请求，也是不用理会的
+        查看response，如果response中，没有set-cookie，也没有返回任何有意义的数据，也是可以忽略的
+
+        查看到 request 中
+        有我们熟知的参数，譬如 用户名、密码等，
+        或者 response中有 set-Cookie
+        或者 response中有 我们需要的数据
+        满足上述任意条件的，就可以知道，这个 url 是我们需要进行访问的
+
+        注意：有特例， 如果有验证码， 验证码的图片url是需要访问的
+
+    2、查找关键 url
+        譬如，你要得到某个数据，你可以查找这个数据是在哪个 response 中得到的
+
+        在github中，我们最终需要得到登录成功的页面
+        而页面中，有 51508690 这个QQ号码
+
+        在 charles 中，使用搜索
+        在 response 范围中， 搜索 51508690
+
+        可以快速定位到 url：https://github.com/
+        而这个 url 是一个 302 跳转
+        那么需要访问的url是： https://github.com/session
+
+
+2、302和301跳转的请求
+    发送的请求，永远是第一个 30X 状态的 url
+    得到的数据，永远是最后一个紧接 30X 状态的一个 200 状态的response
+
+3、如果你发送和charles中的url一样的请求，但是得不到一样的 response 结果
+    从几个方面考虑：
+    1、查看 params是否正确， 不一定是一模一样， 如果是动态获取的，那么只是格式、长度一样
+    2、查看 form 或者 json
+    3、查看 headers（除cookie外的其他headers）
+        第一个查看的就是 Referer
+        再查看其他的 headers
+    4、查看 cookie
+        使用edit或者breakpoint， 找到起关键作用的 cookie
+        找到后，查找 这个 cookie 是哪一个 response 设置的
+        访问对应的 url， 获取cookie即可
+
+4、xpath学习
+    1、 lxml 中的 etree
+        tree.xpath  得到的是一个 list
+        tree.xpath('//title')[0].text
+
+    2、节点选择器，
+        有2种：
+        /     :  从根节点开始，譬如： tree.xpath('/html/body/p/b')[0].text
+        //    :
+            任意位置的节点， 一般主要使用 这个选择器， 譬如：tree.xpath('//b')[0].text
+            极少的情况下，会使用2个 // ,譬如：//div[@role="navigation"]//a[1]
+        ./    :  当前节点位置，往下查找
+                譬如: ele_p = tree.xpath('//p')[0]
+                      print(ele_p.xpath('./b')[0].text)
+
+    3、获取节点的文本内容
+        1、 lxml中使用  .text :   譬如 tree.xpath('//b')[0].text     ，没有 小括号
+        2、 表达式中 使用 text():  譬如： tree.xpath('//b/text()')[0]    ，text后有小括号
+
+    4、多个字节点的选择，使用下标，下标是从 1 开始的！！！
+        譬如，tree.xpath('//p[2]/a[2]')[0].text 选择的是 第二个 p 节点的 第二个 a 节点
+
+    5、根据属性匹配
+        在 节点名后， 使用 @属性名="属性值" ，
+        譬如： //div[@role="navigation"]  ， 属性 role="navigation" 的任意位置的 div
+        使用属性时，有时候，不用指定节点类型，使用 *  , 通配符，匹配任意节点类型
+        譬如：
+        //*[@role="navigation"]//a[1]
+        （在https://www.taobao.com/网站中，查找的节点其实就下面的这个节点）
+        //div[@role="navigation"]//a[1]
+
+    6、根据文本选择匹配
+        使用 text()="文本内容"
+        tree.xpath('//a[text()="test_text"]')[0].get('class')
+
+    7、获取属性值
+        1、lxml中，可以使用get获取： tree.xpath('//p')[0].get('class')  得到 class 属性的值
+                        tree.xpath('//p')[0].attrib  这个 attrib 可以得到节点的所有属性字典
+        2、xpath表达式中，使用 /@属性名  获取属性值：  tree.xpath('//p/@class')[0]
+
+    8、多条件 使用 and 连接
+
+    9、更复杂
+        contains 包含    tree.xpath('//a[contains(@href, "login")]')
+        starts-with 以什么字符串开头的  tree.xpath('//a[starts-with(@href, "https://")]')
+        ends-with : 在 lxml 中，不支持！！！！！！！！！！

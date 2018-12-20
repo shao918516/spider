@@ -1,0 +1,4 @@
+1、安装 urllib3 和 requests
+2、使用 requests 的 get 方法
+    访问 10 个 任意网站的 url， 需要自己填写 headers 和 params
+3、尝试使用 re 正则表达式， 获取 网页中的指定内容

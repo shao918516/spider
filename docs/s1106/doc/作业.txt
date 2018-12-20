@@ -1,0 +1,10 @@
+需求：
+使用requests 登录github
+
+注意事项：没有账号的自己注册一个
+
+登录链接：
+https://github.com/login?return_to=%2Fjoin
+
+注册链接：
+https://github.com/join?return_to=%2Fjoin&source=login

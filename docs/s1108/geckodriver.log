@@ -1,0 +1,253 @@
+1541637864303	geckodriver	INFO	geckodriver 0.19.1
+1541637864317	geckodriver	INFO	Listening on 127.0.0.1:55268
+1541637867537	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.PN5lG8svtmZ3"
+*** You are running in headless mode.
+1541637874603	Marionette	INFO	Listening on port 55276
+1541637874958	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+1541637914787	geckodriver	INFO	geckodriver 0.19.1
+1541637914801	geckodriver	INFO	Listening on 127.0.0.1:55322
+1541637917933	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.hu1A4bdU0MV7"
+*** You are running in headless mode.
+1541637920843	Marionette	INFO	Listening on port 55330
+1541637921178	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+1541665939032	geckodriver	INFO	geckodriver 0.19.1
+1541665939047	geckodriver	INFO	Listening on 127.0.0.1:60781
+1541665942173	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.vGyfp6RCzUe0"
+1541665999073	geckodriver	INFO	geckodriver 0.19.1
+1541665999088	geckodriver	INFO	Listening on 127.0.0.1:60961
+1541666002209	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.OaVMErqpmlkQ"
+1541666002973	Marionette	DEBUG	Received observer notification profile-after-change
+1541666003231	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666003297	Marionette	DEBUG	Received observer notification command-line-startup
+1541666003298	Marionette	DEBUG	Received observer notification nsPref:changed
+1541666003298	Marionette	DEBUG	Init aborted (running=false, enabled=true, finalUIStartup=false)
+1541666003502	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666005237	Marionette	DEBUG	Received observer notification sessionstore-windows-restored
+1541666005238	Marionette	DEBUG	Waiting for delayed startup...
+1541666005347	Marionette	DEBUG	Setting recommended pref app.update.disabledForTesting to true
+1541666005348	Marionette	DEBUG	Setting recommended pref security.turn_off_all_security_so_that_viruses_can_take_over_this_computer to true
+1541666005348	Marionette	DEBUG	Setting recommended pref toolkit.cosmeticAnimations.enabled to false
+1541666005349	Marionette	DEBUG	Setting recommended pref datareporting.policy.dataSubmissionPolicyAccepted to false
+1541666005349	Marionette	DEBUG	Setting recommended pref dom.disable_beforeunload to true
+1541666005418	Marionette	INFO	Listening on port 60969
+1541666005419	Marionette	DEBUG	Remote service is active
+1541666005823	Marionette	DEBUG	Accepted connection 0 from 127.0.0.1:60982
+1541666005826	Marionette	TRACE	0 -> [0,1,"newSession",{"acceptInsecureCerts":true,"browserName":"firefox","capabilities":{"desiredCapabilities":{"acceptInsecureCerts":true,"browserName":"firefox"}}}]
+1541666005826	Marionette	TRACE	0 <- [1,1,{"error":"unknown command","message":"newSession","stacktrace":"WebDriverError@chrome://marionette/content/error.js:178: ... et@chrome://marionette/content/server.js:245:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:490:9\n"},null]
+1541666058148	geckodriver	INFO	geckodriver 0.19.1
+1541666058164	geckodriver	INFO	Listening on 127.0.0.1:61064
+1541666061282	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.tJF8J8gIZgqi"
+1541666061970	Marionette	DEBUG	Received observer notification profile-after-change
+1541666062225	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666062283	Marionette	DEBUG	Received observer notification command-line-startup
+1541666062283	Marionette	DEBUG	Received observer notification nsPref:changed
+1541666062283	Marionette	DEBUG	Init aborted (running=false, enabled=true, finalUIStartup=false)
+1541666062505	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666064088	Marionette	DEBUG	Received observer notification sessionstore-windows-restored
+1541666064088	Marionette	DEBUG	Waiting for delayed startup...
+1541666064178	Marionette	DEBUG	Setting recommended pref app.update.disabledForTesting to true
+1541666064178	Marionette	DEBUG	Setting recommended pref security.turn_off_all_security_so_that_viruses_can_take_over_this_computer to true
+1541666064180	Marionette	DEBUG	Setting recommended pref toolkit.cosmeticAnimations.enabled to false
+1541666064181	Marionette	DEBUG	Setting recommended pref datareporting.policy.dataSubmissionPolicyAccepted to false
+1541666064182	Marionette	DEBUG	Setting recommended pref dom.disable_beforeunload to true
+1541666064233	Marionette	INFO	Listening on port 61074
+1541666064234	Marionette	DEBUG	Remote service is active
+1541666064403	Marionette	DEBUG	Accepted connection 0 from 127.0.0.1:61089
+1541666064414	Marionette	TRACE	0 -> [0,1,"newSession",{"acceptInsecureCerts":true,"browserName":"firefox","capabilities":{"desiredCapabilities":{"acceptInsecureCerts":true,"browserName":"firefox"}}}]
+1541666064414	Marionette	TRACE	0 <- [1,1,{"error":"unknown command","message":"newSession","stacktrace":"WebDriverError@chrome://marionette/content/error.js:178: ... et@chrome://marionette/content/server.js:245:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:490:9\n"},null]
+1541666081887	geckodriver	INFO	geckodriver 0.19.1
+1541666081903	geckodriver	INFO	Listening on 127.0.0.1:61117
+1541666085033	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.3mahppgiJuZb"
+1541666085707	Marionette	DEBUG	Received observer notification profile-after-change
+1541666085932	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666085996	Marionette	DEBUG	Received observer notification command-line-startup
+1541666085996	Marionette	DEBUG	Received observer notification nsPref:changed
+1541666085996	Marionette	DEBUG	Init aborted (running=false, enabled=true, finalUIStartup=false)
+1541666086169	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666087636	Marionette	DEBUG	Received observer notification sessionstore-windows-restored
+1541666087636	Marionette	DEBUG	Waiting for delayed startup...
+1541666087729	Marionette	DEBUG	Setting recommended pref app.update.disabledForTesting to true
+1541666087729	Marionette	DEBUG	Setting recommended pref security.turn_off_all_security_so_that_viruses_can_take_over_this_computer to true
+1541666087730	Marionette	DEBUG	Setting recommended pref toolkit.cosmeticAnimations.enabled to false
+1541666087730	Marionette	DEBUG	Setting recommended pref datareporting.policy.dataSubmissionPolicyAccepted to false
+1541666087730	Marionette	DEBUG	Setting recommended pref dom.disable_beforeunload to true
+1541666087784	Marionette	INFO	Listening on port 61127
+1541666087784	Marionette	DEBUG	Remote service is active
+1541666088148	Marionette	DEBUG	Accepted connection 0 from 127.0.0.1:61142
+1541666088149	Marionette	TRACE	0 -> [0,1,"newSession",{"acceptInsecureCerts":true,"browserName":"firefox","capabilities":{"desiredCapabilities":{"acceptInsecureCerts":true,"browserName":"firefox"}}}]
+1541666088150	Marionette	TRACE	0 <- [1,1,{"error":"unknown command","message":"newSession","stacktrace":"WebDriverError@chrome://marionette/content/error.js:178: ... et@chrome://marionette/content/server.js:245:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:490:9\n"},null]
+1541666160460	geckodriver	INFO	geckodriver 0.19.1
+1541666160477	geckodriver	INFO	Listening on 127.0.0.1:61214
+1541666163591	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.kwf1GCppkv1P"
+1541666164249	Marionette	DEBUG	Received observer notification profile-after-change
+1541666164482	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666164545	Marionette	DEBUG	Received observer notification command-line-startup
+1541666164545	Marionette	DEBUG	Received observer notification nsPref:changed
+1541666164545	Marionette	DEBUG	Init aborted (running=false, enabled=true, finalUIStartup=false)
+1541666164721	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666166095	Marionette	DEBUG	Received observer notification sessionstore-windows-restored
+1541666166095	Marionette	DEBUG	Waiting for delayed startup...
+1541666166226	Marionette	DEBUG	Setting recommended pref app.update.disabledForTesting to true
+1541666166227	Marionette	DEBUG	Setting recommended pref security.turn_off_all_security_so_that_viruses_can_take_over_this_computer to true
+1541666166228	Marionette	DEBUG	Setting recommended pref toolkit.cosmeticAnimations.enabled to false
+1541666166229	Marionette	DEBUG	Setting recommended pref datareporting.policy.dataSubmissionPolicyAccepted to false
+1541666166229	Marionette	DEBUG	Setting recommended pref dom.disable_beforeunload to true
+1541666166296	Marionette	INFO	Listening on port 61222
+1541666166296	Marionette	DEBUG	Remote service is active
+1541666166707	Marionette	DEBUG	Accepted connection 0 from 127.0.0.1:61237
+1541666166710	Marionette	TRACE	0 -> [0,1,"newSession",{"acceptInsecureCerts":true,"browserName":"firefox","capabilities":{"desiredCapabilities":{"acceptInsecureCerts":true,"browserName":"firefox"}}}]
+1541666166710	Marionette	TRACE	0 <- [1,1,{"error":"unknown command","message":"newSession","stacktrace":"WebDriverError@chrome://marionette/content/error.js:178: ... et@chrome://marionette/content/server.js:245:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:490:9\n"},null]
+1541666245714	geckodriver	INFO	geckodriver 0.19.1
+1541666245728	geckodriver	INFO	Listening on 127.0.0.1:61350
+1541666248845	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.fcIiVkGxrcUD"
+1541666249542	Marionette	DEBUG	Received observer notification profile-after-change
+1541666249801	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666249857	Marionette	DEBUG	Received observer notification command-line-startup
+1541666249857	Marionette	DEBUG	Received observer notification nsPref:changed
+1541666249857	Marionette	DEBUG	Init aborted (running=false, enabled=true, finalUIStartup=false)
+1541666250029	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666251428	Marionette	DEBUG	Received observer notification sessionstore-windows-restored
+1541666251428	Marionette	DEBUG	Waiting for delayed startup...
+1541666251527	Marionette	DEBUG	Setting recommended pref app.update.disabledForTesting to true
+1541666251527	Marionette	DEBUG	Setting recommended pref security.turn_off_all_security_so_that_viruses_can_take_over_this_computer to true
+1541666251529	Marionette	DEBUG	Setting recommended pref toolkit.cosmeticAnimations.enabled to false
+1541666251529	Marionette	DEBUG	Setting recommended pref datareporting.policy.dataSubmissionPolicyAccepted to false
+1541666251529	Marionette	DEBUG	Setting recommended pref dom.disable_beforeunload to true
+1541666251592	Marionette	INFO	Listening on port 61359
+1541666251592	Marionette	DEBUG	Remote service is active
+1541666251957	Marionette	DEBUG	Accepted connection 0 from 127.0.0.1:61374
+1541666251958	Marionette	TRACE	0 -> [0,1,"newSession",{"acceptInsecureCerts":true,"browserName":"firefox","capabilities":{"desiredCapabilities":{"acceptInsecureCerts":true,"browserName":"firefox"}}}]
+1541666251958	Marionette	TRACE	0 <- [1,1,{"error":"unknown command","message":"newSession","stacktrace":"WebDriverError@chrome://marionette/content/error.js:178: ... et@chrome://marionette/content/server.js:245:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:490:9\n"},null]
+1541666316711	geckodriver	INFO	geckodriver 0.19.1
+1541666316729	geckodriver	INFO	Listening on 127.0.0.1:61419
+1541666319836	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.gxlCKGUh1a9I"
+1541666320516	Marionette	DEBUG	Received observer notification profile-after-change
+1541666320740	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666320796	Marionette	DEBUG	Received observer notification command-line-startup
+1541666320796	Marionette	DEBUG	Received observer notification nsPref:changed
+1541666320796	Marionette	DEBUG	Init aborted (running=false, enabled=true, finalUIStartup=false)
+1541666320987	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666322373	Marionette	DEBUG	Received observer notification sessionstore-windows-restored
+1541666322374	Marionette	DEBUG	Waiting for delayed startup...
+1541666322476	Marionette	DEBUG	Setting recommended pref app.update.disabledForTesting to true
+1541666322476	Marionette	DEBUG	Setting recommended pref security.turn_off_all_security_so_that_viruses_can_take_over_this_computer to true
+1541666322477	Marionette	DEBUG	Setting recommended pref toolkit.cosmeticAnimations.enabled to false
+1541666322478	Marionette	DEBUG	Setting recommended pref datareporting.policy.dataSubmissionPolicyAccepted to false
+1541666322478	Marionette	DEBUG	Setting recommended pref dom.disable_beforeunload to true
+1541666322531	Marionette	INFO	Listening on port 61427
+1541666322531	Marionette	DEBUG	Remote service is active
+1541666322950	Marionette	DEBUG	Accepted connection 0 from 127.0.0.1:61442
+1541666322956	Marionette	TRACE	0 -> [0,1,"newSession",{"acceptInsecureCerts":true,"browserName":"firefox","capabilities":{"desiredCapabilities":{"acceptInsecureCerts":true,"browserName":"firefox"}}}]
+1541666322957	Marionette	TRACE	0 <- [1,1,{"error":"unknown command","message":"newSession","stacktrace":"WebDriverError@chrome://marionette/content/error.js:178: ... et@chrome://marionette/content/server.js:245:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:490:9\n"},null]
+1541666502929	geckodriver	INFO	geckodriver 0.19.1
+1541666502942	geckodriver	INFO	Listening on 127.0.0.1:61523
+1541666506054	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.5qxtJMxEOGLn"
+1541666506732	Marionette	DEBUG	Received observer notification profile-after-change
+1541666506949	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666506993	Marionette	DEBUG	Received observer notification command-line-startup
+1541666506993	Marionette	DEBUG	Received observer notification nsPref:changed
+1541666506993	Marionette	DEBUG	Init aborted (running=false, enabled=true, finalUIStartup=false)
+1541666507182	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666508528	Marionette	DEBUG	Received observer notification sessionstore-windows-restored
+1541666508528	Marionette	DEBUG	Waiting for delayed startup...
+1541666508658	Marionette	DEBUG	Setting recommended pref app.update.disabledForTesting to true
+1541666508659	Marionette	DEBUG	Setting recommended pref security.turn_off_all_security_so_that_viruses_can_take_over_this_computer to true
+1541666508660	Marionette	DEBUG	Setting recommended pref toolkit.cosmeticAnimations.enabled to false
+1541666508660	Marionette	DEBUG	Setting recommended pref datareporting.policy.dataSubmissionPolicyAccepted to false
+1541666508660	Marionette	DEBUG	Setting recommended pref dom.disable_beforeunload to true
+1541666508714	Marionette	INFO	Listening on port 61532
+1541666508715	Marionette	DEBUG	Remote service is active
+1541666509170	Marionette	DEBUG	Accepted connection 0 from 127.0.0.1:61549
+1541666509172	Marionette	TRACE	0 -> [0,1,"newSession",{"acceptInsecureCerts":true,"browserName":"firefox","capabilities":{"desiredCapabilities":{"acceptInsecureCerts":true,"browserName":"firefox"}}}]
+1541666509172	Marionette	TRACE	0 <- [1,1,{"error":"unknown command","message":"newSession","stacktrace":"WebDriverError@chrome://marionette/content/error.js:178: ... et@chrome://marionette/content/server.js:245:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:490:9\n"},null]
+1541666666157	geckodriver	INFO	geckodriver 0.19.1
+1541666666180	geckodriver	INFO	Listening on 127.0.0.1:61862
+1541666669290	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.XMUaUrFLMQhk"
+1541666669992	Marionette	DEBUG	Received observer notification profile-after-change
+1541666670229	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666670279	Marionette	DEBUG	Received observer notification command-line-startup
+1541666670279	Marionette	DEBUG	Received observer notification nsPref:changed
+1541666670279	Marionette	DEBUG	Init aborted (running=false, enabled=true, finalUIStartup=false)
+1541666670497	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666672034	Marionette	DEBUG	Received observer notification sessionstore-windows-restored
+1541666672034	Marionette	DEBUG	Waiting for delayed startup...
+1541666672176	Marionette	DEBUG	Setting recommended pref app.update.disabledForTesting to true
+1541666672177	Marionette	DEBUG	Setting recommended pref security.turn_off_all_security_so_that_viruses_can_take_over_this_computer to true
+1541666672179	Marionette	DEBUG	Setting recommended pref toolkit.cosmeticAnimations.enabled to false
+1541666672180	Marionette	DEBUG	Setting recommended pref datareporting.policy.dataSubmissionPolicyAccepted to false
+1541666672180	Marionette	DEBUG	Setting recommended pref dom.disable_beforeunload to true
+1541666672226	Marionette	INFO	Listening on port 61870
+1541666672227	Marionette	DEBUG	Remote service is active
+1541666672413	Marionette	DEBUG	Accepted connection 0 from 127.0.0.1:61889
+1541666672417	Marionette	TRACE	0 -> [0,1,"newSession",{"acceptInsecureCerts":true,"browserName":"firefox","capabilities":{"desiredCapabilities":{"acceptInsecureCerts":true,"browserName":"firefox"}}}]
+1541666672417	Marionette	TRACE	0 <- [1,1,{"error":"unknown command","message":"newSession","stacktrace":"WebDriverError@chrome://marionette/content/error.js:178: ... et@chrome://marionette/content/server.js:245:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:490:9\n"},null]
+1541666896287	geckodriver	INFO	geckodriver 0.19.1
+1541666896299	geckodriver	INFO	Listening on 127.0.0.1:49893
+1541666900304	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.boctH0sg7KSa"
+1541666911178	Marionette	DEBUG	Received observer notification profile-after-change
+1541666911658	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666912012	Marionette	DEBUG	Received observer notification command-line-startup
+1541666912012	Marionette	DEBUG	Received observer notification nsPref:changed
+1541666912012	Marionette	DEBUG	Init aborted (running=false, enabled=true, finalUIStartup=false)
+1541666913174	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1541666918764	Marionette	DEBUG	Received observer notification sessionstore-windows-restored
+1541666918764	Marionette	DEBUG	Waiting for delayed startup...
+1541666919238	Marionette	DEBUG	Setting recommended pref app.update.disabledForTesting to true
+1541666919238	Marionette	DEBUG	Setting recommended pref security.turn_off_all_security_so_that_viruses_can_take_over_this_computer to true
+1541666919240	Marionette	DEBUG	Setting recommended pref toolkit.cosmeticAnimations.enabled to false
+1541666919240	Marionette	DEBUG	Setting recommended pref datareporting.policy.dataSubmissionPolicyAccepted to false
+1541666919241	Marionette	DEBUG	Setting recommended pref dom.disable_beforeunload to true
+1541666919377	Marionette	INFO	Listening on port 49901
+1541666919377	Marionette	DEBUG	Remote service is active
+1541666920344	Marionette	DEBUG	Accepted connection 0 from 127.0.0.1:49936
+1541666920346	Marionette	TRACE	0 -> [0,1,"newSession",{"acceptInsecureCerts":true,"browserName":"firefox","capabilities":{"desiredCapabilities":{"acceptInsecureCerts":true,"browserName":"firefox"}}}]
+1541666920347	Marionette	TRACE	0 <- [1,1,{"error":"unknown command","message":"newSession","stacktrace":"WebDriverError@chrome://marionette/content/error.js:178: ... et@chrome://marionette/content/server.js:245:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:490:9\n"},null]
+1541667138948	geckodriver	INFO	geckodriver 0.19.1
+1541667138964	geckodriver	INFO	Listening on 127.0.0.1:50064
+1541667142107	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.28YwaJO5eApm"
+1541667143202	Marionette	INFO	Enabled via --marionette
+1541667145109	Marionette	INFO	Listening on port 50072
+1541667145269	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: getRecipes: falling back to a synchronous message for: https://passport.weibo.cn
+console.warn: nsLoginManager: searchLogins: `formSubmitURL` or `httpRealm` is recommended
+console.warn: LoginRecipes: getRecipes: falling back to a synchronous message for: https://passport.weibo.cn
+console.warn: nsLoginManager: searchLogins: `formSubmitURL` or `httpRealm` is recommended
+console.warn: LoginRecipes: getRecipes: falling back to a synchronous message for: https://passport.weibo.cn
+console.warn: nsLoginManager: searchLogins: `formSubmitURL` or `httpRealm` is recommended
+[Parent 12092, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1541668653491	geckodriver	INFO	geckodriver 0.19.1
+1541668653502	geckodriver	INFO	Listening on 127.0.0.1:50250
+1541668656589	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.zgjvXUWs7Nfm"
+1541668657517	Marionette	INFO	Enabled via --marionette
+1541668659466	Marionette	INFO	Listening on port 50258
+1541668659714	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 3728, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[GPU 13364, Chrome_ChildThread] WARNING: pipe error: 109
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+\rust_mozprofile.UQbNfEZjR9ro"
+1541668860816	Marionette	INFO	Enabled via --marionette
+1541668862808	Marionette	INFO	Listening on port 50316
+1541668863061	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 11004, Chrome_ChildThread][Child 11232, Chrome_ChildThread] WARNI*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1541669287515	geckodriver	INFO	geckodriver 0.19.1
+1541669287527	geckodriver	INFO	Listening on 127.0.0.1:50362
+1541669290664	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.m0l9VsvFfZqJ"
+1541669291527	Marionette	INFO	Enabled via --marionette
+1541669293445	Marionette	INFO	Listening on port 50370
+1541669293817	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 2200, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 2200, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4304, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4304, Chrome_ChildThread] WARNING: pipe error: 10[Child 4896, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4896, Chrome_ChildThread] WARN[Child 14556, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 14556, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[GPU 11032, Chrome_ChildThread] WARNING: pi
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+ file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346

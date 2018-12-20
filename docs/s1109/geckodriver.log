@@ -1,0 +1,37 @@
+1541728397725	geckodriver	INFO	geckodriver 0.19.1
+1541728397738	geckodriver	INFO	Listening on 127.0.0.1:55679
+1541728400841	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.ddDLtFuqSA8U"
+1541728401734	Marionette	INFO	Enabled via --marionette
+1541728403619	Marionette	INFO	Listening on port 55691
+1541728404036	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 2336, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/com1541728435372	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.BpGwdsRZHPzt"
+1541728436236	Marionette	INFO	Enabled via --marionette
+1541728438111	Marionette	INFO	Listening on port 55782
+1541728438509	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+JavaScript error: resource://devtools/shared/base-loader.js -> resource://devtools/server/actors/highlighters/box-model.js, line 410: TypeError: quads is undefined
+JavaScript error: resource://devtools/shared/base-loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 201: TypeError: this.win is null
+JavaScript error: resource://devtools/shared/base-loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 201: TypeError: this.win is null
+JavaScript error: resource://devtools/shared/base-loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 201: TypeError: this.win is null
+JavaScript error: resource://devtools/shared/base-loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 201: TypeError: this.win is null
+1541730668197	geckodriver	INFO	geckodriver 0.19.1
+1541730668212	geckodriver	INFO	Listening on 127.0.0.1:58807
+1541730671312	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.iHDK8qT9CJdx"
+1541730672191	Marionette	INFO	Enabled via --marionette
+1541730674051	Marionette	INFO	Listening on port 58819
+1541730674432	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+[Parent 10796, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 13856, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 14504, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 14504, Chrome_ChildThread] WARNIN*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1541730735116	geckodriver	INFO	geckodriver 0.19.1
+1541730735126	geckodriver	INFO	Listening on 127.0.0.1:58979
+1541730738239	mozrunner::runner	INFO	Running command: "d:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\51508\\AppData\\Local\\Temp\\rust_mozprofile.vciZVQcoPNbl"
+1541730739069	Marionette	INFO	Enabled via --marionette
+1541730740914	Marionette	INFO	Listening on port 58992
+1541730741362	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined

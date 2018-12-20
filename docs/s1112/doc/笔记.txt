@@ -1,0 +1,70 @@
+1、scrapy框架 和 requests库
+    做爬虫项目时，使用哪个？
+    1、批量数据的爬取，多服务器部署的，一般使用scrapy
+    2、一些自定义功能比较强的（如抢票软件），服务器比较少的，使用requests
+        一些网站的可行性测试，使用 requests
+
+
+2、中间件、中间层、中间组件等
+    在2个功能模块之间，起过滤作用的一些  功能模块
+
+    可以类比为我们python语言中的 装饰器
+    对 我们装饰的函数， 输入参数做过滤， 并且对输出参数也做过滤
+
+    理论上，中间层可以无限层数
+    假如：
+    有中间层 1，2, 3, 4
+    输入和输出 起作用的顺序是反的：
+    输入时：4层中间层，是： 中间层1 >> 中间2 >> 中间3 >> 中间4
+    输出时： 顺序是： 中间层4 >> 中间3 >> 中间2 >> 中间1
+
+    以后的工作中，我们接触的中间层有可能是软件、也有可能是硬件
+
+
+3、scrapy目录
+    spiders： 源文件夹，所有的爬虫类都写在这个目录下
+    items.py：  结构化数据的 实体类 的模块
+    middlewares.py:  所有 中间层类 的模块
+    pipelines.py:  结构化后的数据， 持久化 操作的模块
+    settings.py:   项目的 配置文件
+
+4、一般在python项目中， 使用 .py 文件做配置文件！
+    其他一些常见的配置文件：ini、 cfg、 config、 conf、xml等
+
+    千万不要在 .py 配置文件中，写 key=value  以外的代码！！
+
+5、新建 scrapy 项目后， 第一时间修改settings
+    ROBOTSTXT_OBEY = False
+    DEFAULT_REQUEST_HEADERS = 5个常用的headers
+
+    PS：一些常量，都不要固定写在 spider 类中，而是写在 settings配置文件中
+
+6、 scrapy项目的实现步骤：
+    1、在 cmd 窗口中 执行： scrapy startproject 项目名
+    2、把第一步步生成的项目 加载到 pycharm
+    3、修改settings
+        ROBOTSTXT_OBEY
+        DEFAULT_REQUEST_HEADERS
+    4、在 spiders 源文件夹 中 编写一个 spider 模块，
+        在模块中 建立一个 爬虫类，
+        编写对应的 启动方式
+        编写对应的回调函数！
+        直到 得到具体的业务数据
+    5、在 items.py 中 编写 item 实体类， 并且将 第4步 得到的数据 结构化
+        通过 yield item 将 item 传递给 pipeline
+    6、需要在 settings 启用 pipeline
+    7、在 第6步 启用的 pipeline 中，编写对应的 持久化代码
+        可以print输出，也可以写到文件，也可以写到数据库
+    8、持久化成功，项目运行
+
+
+7、spider 类的 2种启动方式：
+    1、 start_urls 属性
+        如果第一个请求直接就是 get 请求的，url就是固定的，
+        没有额外的处理的，那么就使用 该方式
+    2、 start_requests 函数
+        第一种情况处理不了的，就 用 这个方法
+
+8、构造 get 请求，使用 yield scrapy.Request()
+    构造 post 请求， 使用 yield scrapy.FormRequest() , 提交的 data 使用 formdata关键字参数
+

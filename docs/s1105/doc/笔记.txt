@@ -1,0 +1,105 @@
+1、 encode  中  的 errors 设置为  xmlcharrefreplace 时的，逆操作函数
+def xmlchar_2_cn(s):
+    def convert_callback(matches):
+        char_id = matches.group(1)
+        try:
+            return chr(int(char_id))
+        except:
+            return char_id
+
+    ret = re.sub("&#(\d+)(;|(?=\s))", convert_callback, s)
+
+    return ret
+
+2、大型的网站 根路径下一般都会有 robots.txt 这样一个文件
+    譬如：
+    https://www.baidu.com/robots.txt
+    https://www.taobao.com/robots.txt
+
+    内容一般如下：
+    User-agent: Baiduspider  #  指定 爬虫对象
+    Allow:  /article  # 允许爬取的 path
+    Allow:  /oshtml
+    Allow:  /ershou
+    Allow: /$
+    Disallow:  /product/   # 不允许爬取的 path
+    Disallow:  /
+
+
+3、urllib、urllib2和urllib3
+    urllib：
+        一个是python2， 只包含部分网络请求api，其它的部分在 urllib2 中
+        一个是python3， 包含基本的网络请求库的功能
+
+    urllib2： 在python3中已经没有了，只是在python2中有这个库
+
+    urllib3：
+        这个是非官方的，第三方开发的网络请求库，
+        pip 使用的就是这个库
+        后续会学习到的主要的网络请求库 requests，也使用了这个 urllib3
+
+4、python 爬虫，是否需要使用 协程（aiohttp）
+    多线程：同时进行多个任务，类似 高速路 的多车道
+
+    GIL： global interpreter lock 全局解释器锁
+
+    CPU密集型： 大量消耗CPU运算能力的程序， 多线程没任何意义，反而有可能减低执行效率
+    IO密集型： 大量执行IO操作的程序， 多线程是有意义的
+
+    从程序的编写难易度，执行效率，多方面考虑，现在大部分使用的还是 多线程 实现爬虫，
+    而不使用协程
+
+5、网站分页显示一般参数就2种方式：
+    1、pn：
+        指定页码，  譬如第一页就是 pn=1 ，  第10页，就是pn=10
+        指定页码会有一个配套参数， 每页显示多少条, 譬如：num=20 ，  每页显示多少条记录
+    2、start_num:
+        指定起始记录数， 类似list的切片中的 start 参数
+        譬如第1页，  start_num=0，   第11页， start_num=440
+
+6、池的概念介绍
+    最典型的：数据库连接
+
+    一次普通的数据库访问：
+    1、建立数据库的connection
+    2、通过connection得到游标
+    3、通过游标执行SQL语句
+    4、将SQL语句通过TCP/IP发送到数据库服务器
+    5、数据库服务器处理SQL语句，并且返回对应的记录集
+    6、通过游标遍历记录集，得到数据
+    7、关闭游标，关闭connection
+
+    每次 建立连接，关闭连接，都会损耗大量的时间和性能
+    发明了 连接池 的概念
+    1、建立一个连接池，一般都初始化一些连接， 譬如:10条连接
+    2、连接池会自动维护这个 连接，如果中断了，会自动重连
+
+    3、程序要访问数据库时， 找连接池 申请一个 可用的连接
+    4、得到 连接后， 正常执行SQL
+    5、得到数据库的记录集后，  将 连接 还给 连接池
+
+    6、当连接池的可用连接，使用完毕后， 再次被申请连接， 连接池 一般会提供一个增量，
+        没有可用连接时， 自动申请新的连接数, 譬如再次建立10个连接
+    7、当程序使用完连接后， 还给 连接池，
+        会将连接放入到 可用的连接 中
+        当 可用的连接数 超过设置的维持的连接数时，会自动将多余的连接 关闭
+
+7、IP的分类
+    所有基于TCP/IP的服务端软件，都会有监听的IP和端口， 只有同类型的IP的机器可以访问到服务
+    121.69.88.226  ：  外网IP，互联网的IP
+    192.168.7.231  ：  192.168 开头的，  局域网IP
+    127.0.0.1   ：     本机IP
+    localhost   ：     本机，和 127 一样
+    0.0.0.0     ：     所有IP检测完毕后，最后访问的地方，当一个软件监听 0.0.0.0 ，
+                    那么任意网络请求方都可以请求
+
+8、如果程序设置了 代理， 但是没有开启 charles，
+    那么会抛出 Caused by ProxyError('Cannot connect to proxy.',  这个错误！！！
+    2种处理方法：
+    1、打开charles
+    2、去掉代理设置
+
+9、pip 安装第三方库
+    使用 豆瓣的镜像网站 ，会极大的提高安装的速度
+    pip install requests -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+

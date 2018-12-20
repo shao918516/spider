@@ -1,0 +1,31 @@
+1、部署项目，一般的方式：
+    1、实现 项目
+    2、安装好服务器
+    3、在目标服务器安装python
+    4、通过在本级导出 环境， 在 目标服务器安装项目所需环境
+    5、把项目文件上传到 目标服务器
+    6、修改 项目中的 相关配置
+    7、运行项目
+
+2、scrapyd部署
+    1、实现项目
+    2、安装好服务器
+    3、在目标服务器安装python
+    4、在目标服务器安装环境
+        1、在本地 cmd，切换到项目路径，执行
+            pip freeze > requirements.txt
+            整理 txt， 只包含必须的 第三方 库
+        2、将 requirements.txt 上传到服务器
+        3、执行：
+            pip install -r requirements.txt
+
+            PS: 没有 pip 命令的同学
+                使用 ln 建立一个软链接即可
+                ln /usr/local/python3/bin/pip3 /usr/bin/pip
+    5、修改 scrapyd 的配置文件
+    6、执行 scrapyd 发布项目
+        注意：目标服务器的 IP地址！！
+                修改 settings 中的数据库ip
+
+3、配置文件中，凡是有指定目录的，
+    记住，在 磁盘中创建 指定的目录 结构，不要让程序自动生成！

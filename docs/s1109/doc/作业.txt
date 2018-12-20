@@ -1,0 +1,18 @@
+拉勾网
+1、登录拉勾网
+2、搜索 python爬虫
+3、获取3页的岗位数据：
+    岗位名
+    薪水
+    公司名
+    地点
+4、将数据保存到 mysql
+
+
+登录url：https://passport.lagou.com/login/login.html
+
+有加密算法
+提交的请求中：
+password	f65c4696fa08c439bdbf458dfad3e4e6
+
+搜索不到 value  就搜索 key： password

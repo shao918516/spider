@@ -1,0 +1,10 @@
+一、UI软件的分类：
+1、C/S 架构
+    client/server 架构， 常见的 QQ， 微信、 优酷windows版等
+    python实现的话， wxpython、tk
+
+2、B/S 架构
+    browser/server 架构
+    所有的网页显示的程序，都属于B/S架构
+
+

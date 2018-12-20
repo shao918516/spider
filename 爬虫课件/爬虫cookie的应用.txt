@@ -1,0 +1,61 @@
+一、cookie是什么？
+Cookie，有时也用其复数形式 Cookies，指某些网站为了辨别用户身份、
+进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。
+定义于 RFC2109 和 2965 中的都已废弃，最新取代的规范是 RFC6265[1]。
+Cookie其实就是浏览器缓存
+
+二、cookie的生命周期
+1、会话cookie：没有设置expires（是个时间戳）的，浏览器（session）关闭后，就自动失效
+2、持久cookie：设置了expires的，根据设置的失效时间决定（expires时间是可以进行修改的，
+    但是很多网站会做防止修改的设置）
+
+三、cookie具有的属性
+name：为一个cookie的名称。
+value：为一个cookie的值。
+
+domain：为可以访问此cookie的域名，譬如www.baidu.com：baidu.com就是顶级域名
+1、非顶级域名，如二级域名或者三级域名，设置的cookie的domain只能为顶级域名或者二级域名或者三级域名本身，不
+    能设置其他二级域名的cookie，否则cookie无法生成。
+    passport.baidu.com  这个域名下，你只能设置 domain 为 passport.baidu.com 或  baidu.com ， 不能设置 passport1.baidu.com
+2、顶级域名只能设置domain为顶级域名，不能设置为二级域名或者三级域名，否则cookie无法生成。
+    baidu.com 只能设置 domain 为 baidu.com
+3、二级域名能读取设置了domain为顶级域名或者自身的cookie，不能读取其他二级域名domain的cookie。
+    所以要想cookie在多个二级域名中共享，需要设置domain为顶级域名，
+    这样就可以在所有二级域名里面或者到这个cookie的值了。
+4、顶级域名只能获取到domain设置为顶级域名的cookie，其他domain设置为二级域名的无法获取。
+
+path：为可以访问此cookie的页面路径。 比如www.baidu.com/path，path就是/test，
+    path = /test 设置为： www.baidu.com/test， 那么只有/test路径下的页面可以读取此cookie。
+    如果想所有路径都能访问，就设置  path = /
+
+expires/Max-Age ：为此cookie超时时间。若设置其值为一个时间(一个时间戳)，那么当到达此时间后，此cookie失效。
+不设置的话默认值是Session，意思是cookie会和session一起失效。
+当浏览器关闭(不是浏览器标签页，而是整个浏览器) 后，此cookie失效。
+
+Size： 此cookie大小。
+http： cookie的httponly属性。若此属性为true，则只有在http请求头中会带有此cookie的信息，
+    而不能通过document.cookie来访问此cookie。
+secure ： boolean型，默认为false，设置是否只能通过https来传递此cookie
+
+爬虫重点关注name和value
+
+四、cookie应用
+1、以任何方式，如浏览器、selenium、封包方式等，获得对应的cookies
+2、将cookies保存，可以是在内存、文件、数据库等
+3、在你想要应用已有的cookie的 项目 中，已各种方式：文件、数据库、网络等，获取到对应的cookie，
+然后进行设置到请求的headers中的cookie中，接着就可以访问对应的资源了
+
+实际应用：
+1、有几台专门的服务器，进行登录操作，所有账号保存在数据库，
+由这些专门登录的服务器进行登录操作，登录成功后，保存cookies到数据库
+2、有专门的应用服务器，从数据库读取cookies，进行相应的业务操作
+这种服务器不处理登录操作
+
+PS：
+1、cookie的应用，必须是服务器支持，不同的session可以使用同一个cookie
+2、expires是一个客户端和服务器的君子约定，浏览器检测到失效了，就不会读取这个cookie，
+大部分网站都不会检测这个cookie失效，部分要求严格的网站是会检测的，和服务器时间进行比对，判断是否失效。
+一般都通过md5设置
+3、cookie都是由服务器设置的，你客户端设置没意义，服务器不会进行验证
+通过response的headers中set-cookie 设置
+

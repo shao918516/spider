@@ -1,0 +1,170 @@
+1、'Accept-Encoding': 'gzip, deflate, br'
+    指定客户端支持的压缩格式
+    如果你发现得到的服务器的response的 bytes 是类似下面的不可读bytes：
+    b'#Q\xd903`\xd8\x87\xb8d@\xe5\xa4\xd5\x03\xa0:\x13c\xdc\xd0\x1f\xbf\xfe\xfc\xfb/\x81\xc11\x81\xff0'
+
+    那么你就应该怀疑，是否服务器启用了压缩，可以尝试注释掉
+    Accept-Encoding 这个 headers， 看返回值是否可读
+
+2、命名
+    一定要去阅读 PEP8 规范
+    函数、变量、类、模块、包的命名都应该能清晰的表达它本身所代表的含义和功能
+    类是使用的驼峰命名法： StudentClass
+    其它的使用，小写字母、数字和下划线 ,每个单词之间使用_连接，譬如： title_li
+
+    尽量不要去使用非公认的缩写
+    password: pwd
+
+3、正则表达式，左右边界应该非常明确
+    尽可能的保证程序的健壮性
+
+4、 request 中的 headers 中， Host 这个key 是不手动填写的！
+    任何的网络请求库，都会在最终发送数据之前，自动填写这个 host
+    还有
+    Content-Length   也是不手动写
+
+5、pycharm中 菜单栏 的  code >> reformat code  可以自动格式化代码
+
+6、 requests 中， post请求
+    3种参数：
+    1、data  ：  就是html中的 form表单 提交， 最终在 http 发送的 request中 的 请求体，
+                格式是： key1=value1&key2=value2&key3=value3
+    2、params：  就是等同 get 的params， 即在 url 后加 ?key1=value1&key2=value2
+                这个参数可以和 data 同时存在
+    3、json  ：  在http 发送的 request 中的请求体中，是一个  json字符串
+                这个参数不能和 data 同时存在，冲突的
+
+    4、files： 文件格式
+
+    proxies: 设置代理，格式 {'http': '127.0.0.1:8888'}
+    verify:  设置不检测 https 的服务器证书
+             直接设置为 False， 即不效验证书， 即可！
+
+7、pycharm 自动导入 库
+    在 标红线 的 函数或者对象 上， 鼠标的光标移动到 红线上的任意位置
+    安装 alt+enter  ，
+    如果只有一个对应的 导入对象 ，那么继续回车，直接导入
+    如果有多个对应的 导入对象 ，那么回车，会出现 列表，使用 上下键 选择正确的 包，按回车导入
+
+8、当 设置了 verify=False 之后，
+    会出现 InsecureRequestWarning: Unverified HTTPS request is being made. 这样的警告信息
+
+    在模块的头部，设置一下代码，可以忽略警告信息：
+    import urllib3
+    urllib3.disable_warnings()
+
+9、requests的 response 对象，乱码问题：
+    def get_encoding_from_headers(headers):
+        """Returns encodings from given HTTP Header Dict.
+
+        :param headers: dictionary to extract encoding from.
+        :rtype: str
+        """
+        # 获取 response 的headers中的 content-type
+        content_type = headers.get('content-type')
+
+        # 如果 headers 没有这个content-type 这个key，那么返回 None
+        if not content_type:
+            return None
+
+        content_type, params = cgi.parse_header(content_type)
+
+        # 判断 charset 是否在 content_type 中的 ; 后面 ，类似：text/html; charset=UTF-8
+        if 'charset' in params:
+            # 如果有的话，  返回 content_type 中的  charset 的 value
+            return params['charset'].strip("'\"")
+
+        if 'text' in content_type:
+            return 'ISO-8859-1'
+
+
+    3种情况：
+    1、 response的headers中，没有 content-type ，那么返回:  None
+    2、 response的headers中，有 content_type，并且有 charset，那么返回： charset对应的value
+    3、 如果以上2种情况都不满足，并且 'text' 在 content_type中，那么返回: ISO-8859-1
+    4、 如果1,2不满足，并且 'text' 不包含在 content_type中，那么返回： None
+
+    最终，使用 response.text 时
+    1、上述第1、4 两种返回 None，会根据内容去判断编码，一般是 UTF-8， 可以正确解码
+    2、使用 content_type 中的charset 的 value  解码
+    3、使用 ISO-8859-1 解码
+
+    如果很确定网站的编码格式，那么可以
+    # 手动指定一下编码
+    response.encoding = 'UTF-8'
+
+10、OrderedDict
+    有顺序的字典
+
+11、 在 chrome 浏览器的 switchysharp 插件中， 一定记得
+    勾选 对所有协议均使用相同的代理服务器 项，
+    不然的话，会造成你启动代理后，charles只能查看到http的数据，而看不到https的数据包
+
+12、charles中 request 选项 下
+    headers： 查看 请求行 和 请求头
+    Query String:  url 参数, key : value  的形式 ,对应 requests 中的 params 参数
+    Cookies: request提交的 cookie 参数， 也是  key： vale 的形式
+    text： 请求体 的 文本展示情况， 一般不是使用这个选择查看内容，不直观
+    hex： 请求体的 十六进制
+    form： 提交的 form表单 参数， 对应 requests 中的 data 参数
+    json： json类型展开的显示
+    json text： 是没有缩进，直接符合 json 的文本全部显示， 更多在这个 显示中 查看信息
+            2个json 其实是相同内容的不同展示方式，对饮 requests 中的 json 参数
+    multipart:  提交 文件的内容， 一般很少使用
+
+    raw： 所有request最终发送的数据包的内容
+
+13、charles 中， 选中 某一条请求， 右键菜单
+    copy url： 复制当前request的 完整 url
+        https://passport.baidu.com/v2/api/?login
+
+    repeat:  将当前request 重新发送一次
+    repeat advanced:
+        iterations: 重复发送的总次数
+        concurrency：  并发数（线程数）
+        delays:  每个请求之间的间隔时间（ms），单位是毫秒
+
+    edit: 编辑当前请求
+
+    clear： 删除选择的行
+    clear other: 删除 未选中的行
+
+
+14、 小项目：
+    淘宝搜索商品
+    1、 抓包
+        1、开启charles，开启浏览器
+        2、浏览器 清除缓存 ，并且关闭无意义的其它浏览器标签， 打开代理
+        3、charles 打开一个新的session， 开启监听
+        4、浏览器访问目标页面
+        5、继续根据业务需求，在浏览器中操作。。。
+        6、操作完成后，关闭 charles 的抓包， 关闭浏览器的代理
+        7、在 structure 中 清理数据
+        8、保存， 取一个合适的名字， 保存完毕后， 建议开启一个新的session
+
+    2、写代码
+        1、一般爬虫程序，都使用 session 实现，并且使用一个爬虫类
+            构造一个爬虫类，并且 初始化一个session，写一个main
+        2、首页url，不同的应用不同的处理，有些需要访问，有些不需要访问，
+                可以在浏览器中做测试
+                也可以直接访问
+        3、通过在 浏览器和charles 对比，可以知道搜索的 url 请求是：
+            https://s.taobao.com/search?q=%E8%A1%AC%E8%A1%A3&imgfile=&commend=all&ssid=s5-e&search_type=item&sourceId=tb.index&spm=a21bo.2017.201856-taobao-item.1&ie=utf8&initiative_id=tbindexz_20170306&bcoffset=3&ntoffset=3&p4ppushleft=1%2C48&s=0
+            类似这样的很长的 url参数 的请求， 很多参数都是可以忽略的！
+            经过测试，可以精简为：https://s.taobao.com/search?q=衬衣&ie=utf8&s=0
+
+            Referer	https://www.taobao.com/
+            这样的 Referer， 你不管有用没用，直接补充提交即可
+        4、搜索需要捕获的信息
+            一般不要搜索特殊字符和中文， 很有可能被转码了。
+            而去搜搜一些， 字母+数字+_ 的 并且不容易重复的 字符串， 不要过短
+
+
+
+
+15、抓取分页信息
+    一般第一次进入，是获取的第一页数据
+    需要访问最后一页
+    中间也访问一页
+    最后回到第一页
+    注意：回到第一页后，不要再次刷新了！！！因为你再次刷新有可能更新数据
